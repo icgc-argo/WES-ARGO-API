@@ -36,6 +36,7 @@ const GRAPHQ_GQL_PATH = '/graphql';
 const WORKFLOW_API_URL = process.env.WORKFLOW_API_URL;
 const SONG_SEARCH_URL = process.env.SONG_SEARCH_URL;
 const CLINICAL_GQL_URL = process.env.CLINICAL_GQL_URL;
+const DONOR_SUBMISSION_AGGREGATOR_URL = process.env.DONOR_SUBMISSION_AGGREGATOR_URL;
 
 // *** Setup Apollo Federation ***
 const gateway = new ApolloGateway({
@@ -51,6 +52,10 @@ const gateway = new ApolloGateway({
     {
       name: 'argo-clinical',
       url: `${CLINICAL_GQL_URL}${GRAPHQ_GQL_PATH}`,
+    },
+    {
+      name: 'donor-submission-aggregator',
+      url: `${DONOR_SUBMISSION_AGGREGATOR_URL}${GRAPHQ_GQL_PATH}`,
     },
   ],
   buildService({ name, url }) {
